@@ -10,7 +10,7 @@ pipeline {
         IMAGE_REPO_NAME="testpipeline"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-	registryCredential = "demo-admin-user"
+	registryCredential = "demo-pipeline"
     }
    
     stages {
@@ -45,15 +45,15 @@ pipeline {
         }
       }
       
-    stage('Deploy') {
-     steps{
-            withAWS(credentials: registryCredential, region: "${AWS_DEFAULT_REGION}") {
-                script {
-			sh './script.sh'
-                }
-            } 
-        }
-      }      
+//     stage('Deploy') {
+//      steps{
+//             withAWS(credentials: registryCredential, region: "${AWS_DEFAULT_REGION}") {
+//                 script {
+// 			sh './script.sh'
+//                 }
+//             } 
+//         }
+//       }      
       
     }
 }
