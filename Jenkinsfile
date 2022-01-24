@@ -39,7 +39,7 @@ pipeline {
       steps {
         script {
           // This step should not normally be used in your script. Consult the inline help for details.
-          withDockerRegistry(credentialsId: registryCredential, url: "https://${REPOSITORY_URI}") {
+          withDockerRegistry(credentialsId: "ecr:us-east-1:${registryCredential}", url: "https://${REPOSITORY_URI}") {
             // some block
             dockerImage.push()
           }
