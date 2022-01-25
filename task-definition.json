@@ -1,9 +1,9 @@
 {
-    "family": FAMILY,
+    "family": "first-run-task-definition",
     "containerDefinitions": [
         {
-            "image": "REPOSITORY_URI:BUILD_NUMBER",
-            "name": NAME,
+            "image":"295899798296.dkr.ecr.us-east-1.amazonaws.com/testpipeline:20",
+            "name": "nodejs-container",
 	    "essential": true,
             "portMappings": [
                 {
@@ -19,5 +19,5 @@
              "FARGATE"
     ],
     "networkMode": "awsvpc",
-    "executionRoleArn": ROLE_ARN 
+    "executionRoleArn": "arn:aws:iam::295899798296:role/ecsTaskExecutionRole"  
 }
